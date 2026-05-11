@@ -1,3 +1,4 @@
+"use client";
 import MyContainer from "@/components/Common/MyContainer";
 import {
   Button,
@@ -12,13 +13,20 @@ import {
 import React from "react";
 
 const AdminPage = () => {
+  const onsubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const destination = Object.fromEntries(formData.entries());
+    console.log(destination);
+  };
+
   return (
     <MyContainer className="pt-30 pb-20">
       <h3 className="text-[#0C0B0B] text-2xl font-semibold md:text-4xl text-center">
         Add New Travel Package
       </h3>
       <div className="max-w-4xl mx-auto mt-5">
-        <form className="p-10 space-y-8">
+        <form onSubmit={onsubmit} className="p-10 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Destination Name */}
             <div className="md:col-span-2">
