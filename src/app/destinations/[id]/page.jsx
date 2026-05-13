@@ -1,4 +1,5 @@
 import MyContainer from "@/components/Common/MyContainer";
+import EditModal from "@/components/Destinations/EditModal";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +7,6 @@ import { FaCheck } from "react-icons/fa";
 import { GoArrowLeft } from "react-icons/go";
 import { PiCalendarBold, PiMapPinLineLight } from "react-icons/pi";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { TbEdit } from "react-icons/tb";
 
 const DetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -16,7 +16,7 @@ const DetailsPage = async ({ params }) => {
     destination;
   return (
     <MyContainer className="pt-35 pb-20">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center gap-4 justify-between">
         <div>
           <Link
             href="/destinations"
@@ -27,11 +27,8 @@ const DetailsPage = async ({ params }) => {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center text-[#0C0B0B] px-6 py-3 border border-[#B6B6B6] gap-2 cursor-pointer">
-            <TbEdit size={20} />
-            <span>Edit</span>
-          </div>
-          <div className="flex items-center text-[#EF4444] px-6 py-3 border border-[#EF4444] gap-2 cursor-pointer">
+          <EditModal destination={destination} />
+          <div className="flex items-center text-[#EF4444] px-6 py-2 border border-[#EF4444] gap-2 cursor-pointer">
             <RiDeleteBinLine size={20} />
             <span>Cancel</span>
           </div>
