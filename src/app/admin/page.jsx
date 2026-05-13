@@ -37,7 +37,7 @@ const AdminPage = () => {
   };
 
   return (
-    <MyContainer className="pt-30 pb-20">
+    <MyContainer className="pt-35 pb-20">
       <h3 className="text-[#0C0B0B] text-2xl font-semibold md:text-4xl text-center">
         Add New Travel Package
       </h3>
