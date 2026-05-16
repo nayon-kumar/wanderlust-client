@@ -9,16 +9,8 @@ import { Avatar, Button } from "@heroui/react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [session, setSession] = useState(null);
 
-  useEffect(() => {
-    const loadSession = async () => {
-      const { data } = await authClient.getSession();
-      setSession(data);
-    };
-
-    loadSession();
-  }, []);
+  const { data: session, isPending } = authClient.useSession();
 
   const user = session?.user;
 
@@ -71,10 +63,7 @@ const Navbar = () => {
                     </Avatar>
                   </Link>
                   <Button
-                    onClick={async () => {
-                      await authClient.signOut();
-                      setSession(null);
-                    }}
+                    onClick={async () => await authClient.signOut()}
                     variant="danger"
                   >
                     Logout
@@ -147,10 +136,7 @@ const Navbar = () => {
                     </Link>
                     <Button
                       className="w-full"
-                      onClick={async () => {
-                        await authClient.signOut();
-                        setSession(null);
-                      }}
+                      onClick={async () => await authClient.signOut()}
                       variant="danger"
                     >
                       Logout

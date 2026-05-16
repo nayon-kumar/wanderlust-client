@@ -7,16 +7,14 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 import { GoArrowLeft } from "react-icons/go";
 import { PiCalendarBold, PiMapPinLineLight } from "react-icons/pi";
-import { notFound } from "next/navigation";
+import { BookingDate } from "@/components/Destinations/BookingDate";
 
 const DetailsPage = async ({ params }) => {
   const { id } = await params;
   const res = await fetch(`http://localhost:8000/destination/${id}`);
   const destination = await res.json();
-  if (!res.ok) {
-    notFound;
-  }
-  const { destinationName, imageUrl, country, description, duration } =
+
+  const { destinationName, imageUrl, country, description, duration, price } =
     destination;
   return (
     <MyContainer className="pt-35 pb-20">
@@ -56,7 +54,7 @@ const DetailsPage = async ({ params }) => {
           <p className="text-[#6C696D] mt-5">{description}</p>
         </div>
         <div className="mt-10">
-          <h3 className="font-semibold text-xl md:text-2xl">Heighlights</h3>
+          <h3 className="font-semibold text-xl md:text-2xl">Highlights</h3>
           <p className="text-[#6C696D] mt-5">
             Discover the magic of Bali with pristine beaches, ancient temples,
             and vibrant culture. Experience luxury resorts, tropical landscapes,
@@ -87,6 +85,33 @@ const DetailsPage = async ({ params }) => {
           <div className="flex items-center gap-2">
             <FaCheck className="text-green-500" />
             <p className="text-[#6C696D]">Luxury beachfront accommodation</p>
+          </div>
+        </div>
+        <h3 className="text-[#0C0B0B] mt-15 text-center text-2xl font-semibold md:text-4xl">
+          Book Now
+        </h3>
+        <div className="border rounded-lg max-w-xl mx-auto mt-10 bg-[#EEEEEE]/50 border-[#EEEEEE]/93 shadow p-5">
+          <div className="text-center">
+            <p className="text-[#6C696D]">Starting from</p>
+            <h3 className="text-[#15A1BF] text-3xl font-bold my-1">${price}</h3>
+            <p className="text-[#6C696D]">per person</p>
+          </div>
+          <div>
+            <BookingDate destination={destination} />
+          </div>
+          <div className="mt-6 space-y-2">
+            <div className="flex items-center gap-2">
+              <FaCheck className="text-green-500" />
+              <p className="text-[#6C696D]">Free cancellation up to 7 days</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCheck className="text-green-500" />
+              <p className="text-[#6C696D]">Travel insurance included</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCheck className="text-green-500" />
+              <p className="text-[#6C696D]">24/7 customer support</p>
+            </div>
           </div>
         </div>
       </div>
