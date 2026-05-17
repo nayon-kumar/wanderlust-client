@@ -21,7 +21,7 @@ const BookingsPage = async () => {
           Manage and view your upcoming travel plans
         </p>
       </div>
-      <div>
+      <div className="flex flex-col gap-4 mt-10">
         {data.map((booking) => (
           <BookingCard key={booking._id} booking={booking} />
         ))}
