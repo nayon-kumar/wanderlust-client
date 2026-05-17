@@ -1,3 +1,4 @@
+import { BookingDate } from "@/components/Bookings/BookingDate";
 import MyContainer from "@/components/Common/MyContainer";
 import DeleteModal from "@/components/Destinations/DeleteModal";
 import EditModal from "@/components/Destinations/EditModal";
@@ -7,7 +8,6 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 import { GoArrowLeft } from "react-icons/go";
 import { PiCalendarBold, PiMapPinLineLight } from "react-icons/pi";
-import { BookingDate } from "@/components/Destinations/BookingDate";
 
 const DetailsPage = async ({ params }) => {
   const { id } = await params;

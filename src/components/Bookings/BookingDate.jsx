@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import { getLocalTimeZone, today } from "@internationalized/date";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export function BookingDate({ destination }) {
   const { _id, price, destinationName, imageUrl, country } = destination;
@@ -24,7 +25,7 @@ export function BookingDate({ destination }) {
   const todayDate = today(getLocalTimeZone());
   const isInvalid = value !== null && value.compare(todayDate) < 0;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!value || isInvalid) {
@@ -44,8 +45,20 @@ export function BookingDate({ destination }) {
         country,
         departureDate: userInputDate,
       };
-      console.log(bookingData);
 
+      const res = await fetch("http://localhost:8000/bookings", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      const data = await res.json();
+
+      if (data.insertedId) {
+        toast.success(`${destinationName} Booked Successfully!`);
+      }
       setValue(null);
       setIsSubmitting(false);
     }
