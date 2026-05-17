@@ -21,8 +21,7 @@ export function CancelAlert({ booking }) {
 
   return (
     <AlertDialog>
-      <Button variant="danger">
-        {" "}
+      <Button className="w-full" variant="danger">
         <RiDeleteBinLine size={18} />
         Cancel
       </Button>

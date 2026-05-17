@@ -65,14 +65,19 @@ const BookingCard = ({ booking }) => {
 
         {/* Right actions */}
         <div className="flex flex-row lg:flex-col gap-3 w-full lg:w-auto">
-          <Link href={`/destinations/${booking.destinationID}`}>
-            <Button className="flex items-center justify-center gap-2">
+          <Link
+            href={`/destinations/${booking.destinationID}`}
+            className="w-full"
+          >
+            <Button className="w-full flex items-center justify-center gap-2">
               <IoMdEye size={18} />
               View
             </Button>
           </Link>
 
-          <CancelAlert booking={booking} />
+          <div className="w-full">
+            <CancelAlert booking={booking} />
+          </div>
         </div>
       </div>
     </div>
