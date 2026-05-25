@@ -11,10 +11,12 @@ import {
   Label,
 } from "@heroui/react";
 import { getLocalTimeZone, today } from "@internationalized/date";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 export function BookingDate({ destination }) {
+  const router = useRouter();
   const { _id, price, destinationName, imageUrl, country } = destination;
 
   const { data: session } = authClient.useSession();
@@ -61,6 +63,7 @@ export function BookingDate({ destination }) {
 
       if (data.insertedId) {
         toast.success(`${destinationName} Booked Successfully!`);
+        router.push("/bookings");
       }
       setValue(null);
       setIsSubmitting(false);

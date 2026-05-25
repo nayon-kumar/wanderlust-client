@@ -13,9 +13,11 @@ import {
   Select,
   toast,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { TbEdit } from "react-icons/tb";
 
 const EditModal = ({ destination }) => {
+  const router = useRouter();
   const {
     _id,
     destinationName,
@@ -45,7 +47,7 @@ const EditModal = ({ destination }) => {
     const data = await res.json();
     if (data.modifiedCount > 0) {
       toast.success("Destination Edited Successfully!");
-      window.location.reload();
+      router.refresh();
     }
   };
 
