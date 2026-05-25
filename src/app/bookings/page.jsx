@@ -3,6 +3,7 @@ import MyContainer from "@/components/Common/MyContainer";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import React from "react";
+import { FaBookReader } from "react-icons/fa";
 
 const BookingsPage = async () => {
   const session = await auth.api.getSession({
@@ -28,11 +29,18 @@ const BookingsPage = async () => {
           Manage and view your upcoming travel plans
         </p>
       </div>
-      <div className="flex flex-col gap-4 mt-10">
-        {data.map((booking) => (
-          <BookingCard key={booking._id} booking={booking} />
-        ))}
-      </div>
+      {data.length > 0 ? (
+        <div className="flex flex-col gap-4 mt-10">
+          {data.map((booking) => (
+            <BookingCard key={booking._id} booking={booking} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-4 text-center text-gray-500 items-center justify-center mt-15">
+          <FaBookReader size={100} />
+          <p>No booking found!</p>
+        </div>
+      )}
     </MyContainer>
   );
 };
