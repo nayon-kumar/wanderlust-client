@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   FieldError,
@@ -30,10 +31,14 @@ const EditModal = ({ destination }) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const editDestination = Object.fromEntries(formData.entries());
+
+    const { data: tokenData } = await authClient.token();
+    const token = tokenData?.token;
     const res = await fetch(`http://localhost:8000/destination/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(editDestination),
     });

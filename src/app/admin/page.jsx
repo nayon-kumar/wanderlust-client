@@ -12,9 +12,10 @@ import {
   Select,
   toast,
 } from "@heroui/react";
-import React from "react";
+import { useRouter } from "next/navigation";
 
 const AdminPage = () => {
+  const router = useRouter();
   const onsubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -35,6 +36,7 @@ const AdminPage = () => {
     if (data.insertedId) {
       toast.success(`${destination.destinationName} Added!`);
       form.reset();
+      router.push("/destinations");
     }
     return data;
   };
