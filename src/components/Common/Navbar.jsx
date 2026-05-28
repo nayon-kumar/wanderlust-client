@@ -111,20 +111,14 @@ const Navbar = () => {
               <div className="pt-4 border-t border-gray-300 flex flex-col gap-5">
                 {user ? (
                   <>
-                    <Link
-                      onClick={closeMenu}
-                      className="flex items-center justify-center"
-                      href="/profile"
-                    >
-                      <Avatar>
-                        <Avatar.Image
-                          referrerPolicy="no-referrer"
-                          alt={user?.name}
-                          src={user?.image}
-                        />
-                        <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-                      </Avatar>
-                    </Link>
+                    <Avatar>
+                      <Avatar.Image
+                        referrerPolicy="no-referrer"
+                        alt={user?.name}
+                        src={user?.image}
+                      />
+                      <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                    </Avatar>
                     <Button
                       className="w-full"
                       onClick={async () => {
