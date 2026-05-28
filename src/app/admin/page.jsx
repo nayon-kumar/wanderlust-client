@@ -15,12 +15,25 @@ import {
 import { useRouter } from "next/navigation";
 
 const AdminPage = () => {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
   const router = useRouter();
   const onsubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(e.target);
     const destination = Object.fromEntries(formData.entries());
+    const newDestination = {
+      destinationName: destination.destinationName,
+      description: destination.description,
+      imageUrl: destination.imageUrl,
+      country: destination.country,
+      category: destination.category,
+      duration: destination.duration,
+      price: destination.price,
+      departureDate: destination.departureDate,
+      userID: user.id,
+    };
 
     const { data: tokenData } = await authClient.token();
     const res = await fetch(
@@ -31,7 +44,7 @@ const AdminPage = () => {
           "Content-Type": "application/json",
           authorization: `Bearer ${tokenData?.token}`,
         },
-        body: JSON.stringify(destination),
+        body: JSON.stringify(newDestination),
       },
     );
 

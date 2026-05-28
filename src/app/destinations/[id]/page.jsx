@@ -25,7 +25,6 @@ const DetailsPage = async ({ params }) => {
     },
   );
   const destination = await res.json();
-  console.log(destination);
 
   const { destinationName, imageUrl, country, description, duration, price } =
     destination;
