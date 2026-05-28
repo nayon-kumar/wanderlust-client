@@ -1,7 +1,10 @@
+"use client";
 import { Separator } from "@heroui/react";
 import MyContainer from "../Common/MyContainer";
+import { useRouter } from "next/navigation";
 
 const Banner = () => {
+  const router = useRouter();
   return (
     <div className="bg-[url('/assets/Banner.png')] bg-no-repeats bg-cover text-white  flex justify-between flex-col items-center pt-30  md:pt-40 pb-10 gap-5">
       <div className="p-10 text-center flex justify-center flex-col items-center gap-3.5 flex-1">
@@ -15,11 +18,17 @@ const Banner = () => {
         </p>
 
         <div className="flex flex-wrap items-center justify-center md:justify-normal gap-5">
-          <button className="uppercase bg-cyan-500 px-5 py-1.5 md:py-3 cursor-pointer">
+          <button
+            onClick={() => router.push("/destinations")}
+            className="uppercase bg-cyan-500 px-5 py-1.5 md:py-3 cursor-pointer"
+          >
             Explore Now
           </button>
 
-          <button className="uppercase px-5 py-1.5 md:py-3 bg-white/50 cursor-pointer">
+          <button
+            onClick={() => router.push("/destinations")}
+            className="uppercase px-5 py-1.5 md:py-3 bg-white/50 cursor-pointer"
+          >
             View Destination
           </button>
         </div>

@@ -1,8 +1,10 @@
-import { Button } from "@heroui/react";
-import { FaArrowRight } from "react-icons/fa";
 import MyContainer from "../Common/MyContainer";
+import DestinationCard from "@/ui/DestinationCard";
+import DestinationButton from "./DestinationButton";
 
-const Featured = () => {
+const Featured = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination`);
+  const destinations = await res.json();
   return (
     <MyContainer className="py-20">
       <div className="flex flex-wrap items-center justify-center sm:justify-between gap-4">
@@ -15,12 +17,14 @@ const Featured = () => {
           </p>
         </div>
         <div>
-          <Button>
-            All destinations <FaArrowRight />{" "}
-          </Button>
+          <DestinationButton />
         </div>
       </div>
-      <div></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-11">
+        {destinations.slice(0, 3).map((destination) => (
+          <DestinationCard key={destination._id} destination={destination} />
+        ))}
+      </div>
     </MyContainer>
   );
 };
