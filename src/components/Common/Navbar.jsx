@@ -46,22 +46,16 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             {/* Desktop Auth Links */}
             <div className="hidden lg:flex items-center gap-6">
-              <Navlink className="flex items-center gap-1" href="/profile">
-                <Person className="w-5 h-5" />
-                Profile
-              </Navlink>
               {user ? (
                 <>
-                  <Link href="/profile">
-                    <Avatar>
-                      <Avatar.Image
-                        referrerPolicy="no-referrer"
-                        alt={user?.name}
-                        src={user?.image}
-                      />
-                      <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-                    </Avatar>
-                  </Link>
+                  <Avatar>
+                    <Avatar.Image
+                      referrerPolicy="no-referrer"
+                      alt={user?.name}
+                      src={user?.image}
+                    />
+                    <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                  </Avatar>
                   <Button
                     onClick={async () => await authClient.signOut()}
                     variant="danger"

@@ -10,13 +10,16 @@ const DeleteModal = ({ destination }) => {
     const { data: tokenData } = await authClient.token();
     const token = tokenData?.token;
 
-    const res = await fetch(`http://localhost:8000/destination/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     const data = await res.json();
     if (data.deletedCount > 0) {
       toast.danger(`${destinationName} Destination Deleted!`);

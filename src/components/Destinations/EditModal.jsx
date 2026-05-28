@@ -36,14 +36,17 @@ const EditModal = ({ destination }) => {
 
     const { data: tokenData } = await authClient.token();
     const token = tokenData?.token;
-    const res = await fetch(`http://localhost:8000/destination/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(editDestination),
       },
-      body: JSON.stringify(editDestination),
-    });
+    );
     const data = await res.json();
     if (data.modifiedCount > 0) {
       toast.success("Destination Edited Successfully!");

@@ -2,7 +2,7 @@ import MyContainer from "@/components/Common/MyContainer";
 import DestinationCard from "@/ui/DestinationCard";
 
 const destinationsPage = async () => {
-  const res = await fetch("http://localhost:8000/destination");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination`);
   const destinations = await res.json();
   return (
     <MyContainer className="pt-35 pb-20">

@@ -9,13 +9,16 @@ export function CancelAlert({ booking }) {
   const cancelBooking = async (bookingID) => {
     const { data: tokenData } = await authClient.token();
 
-    const res = await fetch(`http://localhost:8000/bookings/${bookingID}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-        authorization: `Bearer ${tokenData?.token}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${bookingID}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          authorization: `Bearer ${tokenData?.token}`,
+        },
       },
-    });
+    );
     const data = await res.json();
     if (data.deletedCount > 0) {
       toast.error(`${booking.destinationName} Booking Cancelled!`);
