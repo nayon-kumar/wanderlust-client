@@ -3,7 +3,7 @@ import MyContainer from "../Common/MyContainer";
 
 const Banner = () => {
   return (
-    <div className="bg-[url('/assets/banner.png')] bg-no-repeats bg-cover text-white  flex justify-between flex-col items-center pt-30  md:pt-40 pb-10 gap-5">
+    <div className="bg-[url('/assets/Banner.png')] bg-no-repeats bg-cover text-white  flex justify-between flex-col items-center pt-30  md:pt-40 pb-10 gap-5">
       <div className="p-10 text-center flex justify-center flex-col items-center gap-3.5 flex-1">
         <h1 className="text-4xl md:text-6xl">
           Discover Your <br /> Next Adventure
