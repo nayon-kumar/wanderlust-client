@@ -6,7 +6,7 @@ A modern and responsive travel booking web application where users can explore d
 
 ## 🚀 Live Demo
 
-🔗 https://wanderlust-client.vercel.app
+🔗 https://wanderlust-client-phi.vercel.app/
 
 ---
 
