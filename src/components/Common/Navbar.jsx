@@ -111,14 +111,16 @@ const Navbar = () => {
               <div className="pt-4 border-t border-gray-300 flex flex-col gap-5">
                 {user ? (
                   <>
-                    <Avatar>
-                      <Avatar.Image
-                        referrerPolicy="no-referrer"
-                        alt={user?.name}
-                        src={user?.image}
-                      />
-                      <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-                    </Avatar>
+                    <div className="flex items-center justify-center">
+                      <Avatar>
+                        <Avatar.Image
+                          referrerPolicy="no-referrer"
+                          alt={user?.name}
+                          src={user?.image}
+                        />
+                        <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                      </Avatar>
+                    </div>
                     <Button
                       className="w-full"
                       onClick={async () => {

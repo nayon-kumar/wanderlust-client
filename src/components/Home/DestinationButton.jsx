@@ -12,7 +12,7 @@ const DestinationButton = () => {
         className="rounded-md"
         onClick={() => router.push("/destinations")}
       >
-        All destinations <FaArrowRight />{" "}
+        All Destinations <FaArrowRight />{" "}
       </Button>
     </div>
   );
