@@ -40,7 +40,7 @@ const BookingsPage = async () => {
         </div>
       ) : (
         <div className="flex flex-col gap-4 text-center text-gray-500 items-center justify-center mt-15">
-          <FaBookReader size={100} />
+          <FaBookReader size={130} />
           <p>No booking found!</p>
         </div>
       )}
