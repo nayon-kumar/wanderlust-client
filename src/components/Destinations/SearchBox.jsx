@@ -31,7 +31,7 @@ const SearchBox = ({ defaultValue }) => {
         />
         <button
           type="submit"
-          className="bg-black text-white px-4 py-2 rounded-md"
+          className="bg-black text-white px-4 py-2 rounded-md cursor-pointer"
         >
           Search
         </button>

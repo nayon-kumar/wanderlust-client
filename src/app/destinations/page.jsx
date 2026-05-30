@@ -33,7 +33,7 @@ const destinationsPage = async ({ searchParams }) => {
         </div>
       ) : (
         <div className="mt-10 text-gray-500 flex flex-col items-center justify-center">
-          <CiFileOn size={140} />
+          <CiFileOn size={120} />
           <p className="mt-4">No destination found!</p>
         </div>
       )}
