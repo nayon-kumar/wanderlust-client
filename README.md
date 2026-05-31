@@ -1,4 +1,4 @@
-# 🌍 WonderLast - Travel & Booking Platform
+# 🌍 WonderLust - Travel & Booking Platform
 
 A modern and responsive travel booking web application where users can explore destinations and book amazing trips around the world.
 
