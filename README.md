@@ -1,4 +1,4 @@
-# 🌍 WonderLust - Travel & Booking Platform
+# 🌍 WonderLust - Travel Booking Platform
 
 A modern and responsive travel booking web application where users can explore destinations and book amazing trips around the world.
 
@@ -6,7 +6,47 @@ A modern and responsive travel booking web application where users can explore d
 
 ## 🚀 Live Demo
 
-🔗 https://wanderlust-client-phi.vercel.app/
+👉 https://wanderlust-client-phi.vercel.app/
+
+---
+
+## 📸 Screenshots
+
+##### Home
+
+<p align="center">
+  <img src="./screenshots/1.png" width="90%" />
+</p>
+
+##### Destinations
+
+<p align="center">
+  <img src="./screenshots/2.png" width="90%" />
+</p>
+
+##### My Booking
+
+<p align="center">
+  <img src="./screenshots/3.png" width="90%" />
+</p>
+
+##### Admin
+
+<p align="center">
+  <img src="./screenshots/4.png" width="90%" />
+</p>
+
+##### Edit Destination
+
+<p align="center">
+  <img src="./screenshots/5.png" width="90%" />
+</p>
+
+##### Delete Destination
+
+<p align="center">
+  <img src="./screenshots/6.png" width="90%" />
+</p>
 
 ---
 
